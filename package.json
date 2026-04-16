@@ -1,0 +1,63 @@
+{
+  "name": "rallect-windows-installer",
+  "version": "0.1.0",
+  "description": "Rallect Windows desktop wrapper with auto-updates",
+  "main": "electron/main.js",
+  "scripts": {
+    "electron:dev": "electron .",
+    "electron:build": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& electron-builder --dir --config.directories.output=dist-unpacked-%RANDOM%",
+    "dist:win": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& electron-builder --win nsis --config.directories.output=dist-installer-%RANDOM%"
+  },
+  "keywords": [],
+  "author": "Rallect",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "electron-updater": "^6.8.3"
+  },
+  "devDependencies": {
+    "electron": "^41.2.1",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "ai.rallect.desktop",
+    "productName": "Rallect",
+    "copyright": "Copyright (c) Rallect",
+    "asar": true,
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "files": [
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "dist"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "rallect-ai",
+        "repo": "windows-app",
+        "private": false
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "resources/icon.png",
+      "requestedExecutionLevel": "asInvoker",
+      "legalTrademarks": "Rallect",
+      "signAndEditExecutable": false,
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true
+    }
+  }
+}

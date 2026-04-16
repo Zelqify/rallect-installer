@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rallect - No Connection</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #0f111a;
+        color: #f4f5f8;
+        font-family: "Segoe UI", Arial, sans-serif;
+        display: grid;
+        place-items: center;
+      }
+      .card {
+        width: min(520px, 92vw);
+        padding: 28px;
+        border-radius: 14px;
+        background: #181b29;
+        border: 1px solid #2b3044;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 24px;
+      }
+      p {
+        margin: 0 0 14px;
+        color: #cdd2e2;
+        line-height: 1.55;
+      }
+      button {
+        appearance: none;
+        border: 0;
+        border-radius: 10px;
+        background: #5d6bff;
+        color: #fff;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #6f7bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>No connection</h1>
+      <p>Rallect cannot reach the web app right now.</p>
+      <p>Check your internet connection and try again.</p>
+      <button onclick="window.location.reload()">Retry</button>
+    </div>
+  </body>
+</html>
